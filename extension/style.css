@@ -1,0 +1,346 @@
+/* ==========================================================
+   1.  GOOGLE FONTS  (works even if one URL is unreachable)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ==========================================================
+   2.  GLOBAL / RESET
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   3.  HERO SECTION (#hero)
+   ========================================================== */
+#hero {
+  position: relative;
+  height: 100vh;
+  background-color: #212529;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#hero .container {
+  z-index: 1;
+  text-align: center;
+}
+
+#hero .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#hero .btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  transform: translateY(-3px);
+}
+
+/* Scroll-down arrow (no absolute positioning) */
+.scroll-down {
+  margin-top: 2.5rem;
+}
+
+.scroll-down a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  display: inline-block;
+  animation: bounce 2s infinite;
+  transition: color 0.3s;
+}
+
+.scroll-down a:hover {
+  color: #ffffff;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+/* ==========================================================
+   4.  INSTALLATION TIMELINE
+   ========================================================== */
+.timeline {
+  position: relative;
+  padding-left: 4rem;
+  margin: 0;
+  border-left: 3px solid #0d6efd;
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: #0d6efd;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 3px solid #ffffff;
+}
+
+.timeline-content {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h3 {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.timeline-content code {
+  background-color: #e9ecef;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 85%;
+}
+
+/* ==========================================================
+   5.  CERTIFICATE STYLES (landscape, fully-contained)
+   ========================================================== */
+.certificate-wrapper {
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+  text-align: center;
+}
+
+.certificate {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.414 / 1;       /* A4 landscape ratio */
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: clamp(30px, 4vw, 60px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* animated rainbow border */
+.certificate::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* dashed inner frame */
+.certificate::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+/* header */
+.cert-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.trophy {
+  font-size: clamp(40px, 6vw, 70px);
+  animation: bounce 2s ease-in-out infinite;
+  cursor: pointer;
+  user-select: none;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* content */
+.subtitle {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: #6c757d;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.recipient {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.main-text {
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.6;
+  color: #495057;
+  max-width: 90%;
+  margin: 0 auto 20px;
+}
+
+.award-text {
+  font-size: clamp(14px, 2vw, 18px);
+  margin-bottom: 20px;
+}
+.award-text strong {
+  font-family: 'Playfair Display', serif;
+  color: #ffc107;
+}
+
+/* footer */
+.cert-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.signature-block,
+.seal-block {
+  flex: 1 1 200px;
+  max-width: 100%;
+}
+
+.signature-img {
+  height: 35px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.signatory {
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #343a40;
+}
+
+.role {
+  font-size: clamp(11px, 1.5vw, 13px);
+  color: #6c757d;
+  font-style: italic;
+}
+
+.seal-img {
+  width: clamp(70px, 10vw, 100px);
+  height: clamp(70px, 10vw, 100px);
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* button */
+.download-btn {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: clamp(15px, 2.2vw, 18px);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* easter egg rainbow */
+.certificate.konami {
+  animation: rainbow 2s linear infinite;
+}
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* sparkle animation (for JS) */
+@keyframes sparkleFloat {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(-100px) rotate(360deg); }
+}
+
+/* responsive tweak */
+@media (max-width: 600px) {
+  .cert-footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
