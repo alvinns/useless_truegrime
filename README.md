@@ -9,8 +9,8 @@
 
 
 ### Team Members
+- Team Lead : Alvin N S - Jyothi engineering college
 - Member 1: Adam Felanso Sijo - Jyothi engineering college
-- Member 2: Alvin N S - Jyothi engineering college
 
 ### Project Description
 A completely useless Chrome extension that pops up every minute you browse, awarding you a ridiculous certificate for “wasting time productively.”
